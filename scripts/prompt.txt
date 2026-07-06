@@ -1,0 +1,48 @@
+Generate a set of standalone, static HTML + CSS mockups for an online bookstore.
+No JavaScript, no frameworks — plain semantic HTML5 and hand-written CSS only.
+Each page must be a complete, self-contained .html file with its CSS in a
+<style> tag (or a shared styles.css referenced by all pages). Use placeholder
+content and dummy book data. Use realistic book covers via placeholder images.
+
+## Design system (use these exact tokens as CSS variables)
+--background:#ffffff; --foreground:#1f2937;
+--primary:#1f2937; --primary-foreground:#ffffff;
+--secondary:#f3f4f6; --secondary-foreground:#1f2937;
+--accent:#3b82f6; --accent-foreground:#ffffff;
+--muted:#e5e7eb; --muted-foreground:#6b7280;
+--border:#d1d5db; --destructive:#ef4444;
+- Clean, modern, responsive layout. Max content width ~1120px, centered.
+- Rounded corners (~8px), subtle shadows, generous whitespace.
+- Buttons: primary (accent bg) and secondary (secondary bg) variants.
+- Provide a light theme; optionally a dark theme via a `.dark` class overriding
+  the same variables.
+
+## Shared chrome (on every page)
+- Sticky header: brand "📚 Bookstore" on the left; on the right, when logged out
+  show "Login" link + "Register" button, when logged in show "My Orders", a
+  "Logout" button, and the username. (Show the logged-in variant on pages that
+  need it, logged-out on auth pages.)
+- Footer with copyright text.
+
+## Pages to generate
+1. index.html — Home: centered heading + subtitle, then a responsive grid
+   (4 cols desktop, 2 tablet, 1 mobile) of book cards. Card = cover image,
+   title, author, 2-line description, price, and an in-stock/out-of-stock
+   badge (green / red). Below the grid: Previous / page indicator / Next.
+2. book-detail.html — two-column layout: large cover on the left; on the right
+   title, author, big price, in-stock badge, description, a quantity stepper
+   (− input +) and an "Add to Order" button. Include a "← Back to catalog" link.
+3. login.html — centered card with a login form (username, password, submit),
+   link to register.
+4. register.html — centered card with a registration form (username, email,
+   password, submit), link to login.
+5. orders.html — "My Orders" heading and a list of order rows: small cover,
+   title, author, quantity, order date, and the line total on the right.
+   Include an empty-state variant too.
+
+## Requirements for handoff
+- Use clear, semantic, reusable class names (e.g. .btn-primary, .btn-secondary,
+  .card, .book-grid, .badge-in-stock) so the markup is easy to port to Vue +
+  Tailwind later.
+- Keep markup and CSS clean and well-indented. No inline styles.
+- Mobile-responsive via flexbox/grid and media queries.
